@@ -117,3 +117,9 @@ py -3.11 -m PyInstaller --clean --noconfirm 短剧下载神器桌面版.spec
 ## 开源说明
 
 本项目提供完整源码，允许学习、修改和二次开发。提交仓库时建议包含源码、依赖文件、打包配置、介绍文档和必要的静态资源，不建议提交 `build`、`dist`、`__pycache__` 等构建产物。
+
+喜欢的话赞助一下喵
+
+<img width="1456" height="1080" alt="download" src="https://github.com/user-attachments/assets/e0b5d1d9-dfcb-4933-8a3d-f97afe79d097" />
+
+
