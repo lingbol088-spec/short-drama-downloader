@@ -1,3 +1,11 @@
+交流群
+<img width="1284" height="2283" alt="5420e8c122e05f3aae7c5f84b1768656" src="https://github.com/user-attachments/assets/730b154c-aec6-4151-a4e5-6b60c1473959" />
+<img width="1284" height="2283" alt="c8a460e21228dd4169569f069b1573d3" src="https://github.com/user-attachments/assets/05e8e92d-d277-4f70-b078-dc8345c400e1" />
+
+
+ 
+ 
+ 
  短剧下载神器开源版介绍
 
 ## 项目定位
