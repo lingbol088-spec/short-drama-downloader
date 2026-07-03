@@ -1,7 +1,6 @@
 交流群
-<img width="1284" height="2283" alt="5420e8c122e05f3aae7c5f84b1768656" src="https://github.com/user-attachments/assets/730b154c-aec6-4151-a4e5-6b60c1473959" />
-<img width="1284" height="2283" alt="c8a460e21228dd4169569f069b1573d3" src="https://github.com/user-attachments/assets/05e8e92d-d277-4f70-b078-dc8345c400e1" />
-
+<img width="700" height="1244" alt="screenshot_2" src="https://github.com/user-attachments/assets/ada4e36b-b4b4-470f-9199-9a57fae9a403" />
+<img width="700" height="1244" alt="screenshot_1" src="https://github.com/user-attachments/assets/d9db3632-2d34-40fe-82d5-8b689f9bc4d8" />
 
  
  
