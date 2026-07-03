@@ -1,9 +1,4 @@
-交流群
-<img width="700" height="1244" alt="screenshot_2" src="https://github.com/user-attachments/assets/ada4e36b-b4b4-470f-9199-9a57fae9a403" />
-<img width="700" height="1244" alt="screenshot_1" src="https://github.com/user-attachments/assets/d9db3632-2d34-40fe-82d5-8b689f9bc4d8" />
 
- 
- 
  
  短剧下载神器开源版介绍
 
