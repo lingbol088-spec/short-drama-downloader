@@ -1,0 +1,9 @@
+﻿Flask>=3.0,<4
+requests>=2.31,<3
+pycryptodome>=3.20,<4
+betterproto==1.2.5
+gmssl>=3.2,<4
+snowland_smx>=0.3.1,<0.4
+pyinstaller>=6.0,<7
+beautifulsoup4>=4.12,<5
+lxml>=5.0,<6

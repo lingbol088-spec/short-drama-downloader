@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local config / secrets
+.env
+*.local
+key.txt
+config.json
+
+# Runtime outputs
+*.mp4
+*.m4s
+*.ts
+*.log

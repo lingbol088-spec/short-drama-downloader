@@ -1,0 +1,39 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# Local config / secrets
+.env
+*.local
+key.txt
+
+# Runtime outputs
+src/
+*.mp4
+*.m4s
+*.ts
+*.log
+
+# Build outputs
+build/
+dist/
+*.spec.bak
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# PyInstaller generated files can be rebuilt locally
+*.manifest
+
+# Local runtime config
+config.json
+

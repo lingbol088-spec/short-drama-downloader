@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>短剧下载工具 · 开源版</title>
+<style>
+:root{--bg:#0f1014;--panel:#181a20;--panel2:#20232b;--line:#2b303a;--text:#f5f6f8;--muted:#9aa3af;--brand:#ff6b35;--brand2:#ff4d4d;--ok:#66d17a;--warn:#ffca6b;--err:#ff6b6b;--blue:#6aa9ff}
+*{margin:0;padding:0;box-sizing:border-box}body{background:radial-gradient(circle at top,#21151a,#0f1014 38%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;min-height:100vh;padding:22px}.app{max-width:1280px;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:18px}.title h1{font-size:26px;line-height:1.2;background:linear-gradient(135deg,var(--brand2),#ff9f1c);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.title p{color:var(--muted);font-size:13px;margin-top:7px}.tabs{display:flex;gap:10px;flex-wrap:wrap}.tab{background:var(--panel2);border:1px solid var(--line);color:#d7dbe2;border-radius:11px;padding:11px 18px;cursor:pointer}.tab.active{background:linear-gradient(135deg,var(--brand2),var(--brand));border-color:transparent;color:white;font-weight:700}.panel{display:none;background:rgba(24,26,32,.96);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 18px 60px rgba(0,0,0,.28)}.panel.active{display:block}.section-title{font-size:15px;font-weight:700;margin-bottom:12px;color:#eef1f5}.grid{display:grid;grid-template-columns:1.3fr 120px 180px auto auto;gap:12px;align-items:end}.grid-2{display:grid;grid-template-columns:1fr 1fr 130px auto;gap:12px}label{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}input,select,textarea{width:100%;background:#111319;border:1px solid var(--line);border-radius:10px;color:var(--text);font-size:14px;outline:none;padding:12px 13px}textarea{min-height:135px;resize:vertical;line-height:1.6}input:focus,select:focus,textarea:focus{border-color:var(--brand)}button{background:linear-gradient(135deg,var(--brand2),var(--brand));border:0;color:white;border-radius:10px;padding:12px 18px;font-weight:700;cursor:pointer;white-space:nowrap}button:hover{opacity:.88}button:disabled{opacity:.45;cursor:not-allowed}.btn2{background:#282c36;border:1px solid #3b414e;color:#e6e8ec}.btn3{background:#172a42;border:1px solid #28517e;color:#bcdcff}.btn-danger{background:#3d1515;border:1px solid #703232;color:#ffb0b0}.filter-row{display:grid;grid-template-columns:1fr auto auto auto;gap:12px;margin-top:14px}.hint{margin-top:11px;color:var(--muted);font-size:12px;line-height:1.7}.hint.warn{color:var(--warn)}.table-wrap{margin-top:16px;overflow:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:1060px;background:#15171d}th,td{border-bottom:1px solid #262b34;padding:12px 10px;text-align:left;font-size:13px;vertical-align:middle}th{position:sticky;top:0;background:#20232b;color:#c7cdd7;z-index:1}td{color:#e6e8ec}.muted{color:var(--muted)}.tag{display:inline-block;background:#2c2430;color:#ffcae0;border:1px solid #55324a;border-radius:999px;padding:3px 8px;font-size:12px}.mini{padding:6px 10px;border-radius:8px;font-size:12px}.bottom-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}.status{font-size:12px;line-height:1.6;color:var(--muted)}.status.ok{color:var(--ok)}.status.warn{color:var(--warn)}.status.err{color:var(--err)}.task-layout{display:grid;grid-template-columns:360px 1fr;gap:16px}.task-card{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:14px}.task-list{display:flex;flex-direction:column;gap:10px}.task{background:#14161c;border:1px solid #262b34;border-radius:12px;padding:12px}.task-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}.task-title{font-weight:700;font-size:14px}.task-id{font-size:12px;color:var(--muted);margin-top:3px}.pill{border-radius:999px;padding:4px 9px;font-size:12px;border:1px solid var(--line);color:#cfd5df}.pill.pending{color:#cfd5df}.pill.running{color:var(--blue);border-color:#25517d}.pill.done{color:var(--ok);border-color:#276b34}.pill.error{color:var(--err);border-color:#743030}.progress{height:8px;background:#252a33;border-radius:999px;overflow:hidden;margin:8px 0}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--brand2),var(--brand));width:0%}.task-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.config{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:15px}.config-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.config-form{display:none;margin-top:14px}.config.open .config-form{display:grid}.empty{padding:35px;text-align:center;color:var(--muted)}.toast{position:fixed;right:18px;bottom:18px;background:#1c2028;border:1px solid var(--line);color:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 35px rgba(0,0,0,.35);display:none;max-width:460px;line-height:1.6}.toast.show{display:block}@media(max-width:900px){.top{flex-direction:column}.grid,.filter-row,.grid-2,.task-layout{grid-template-columns:1fr}.tabs{width:100%}.tab{flex:1;text-align:center}button{width:100%}}
+
+/* wallpaper / glass UI overrides */
+body{
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.82), rgba(234,243,255,.66) 36%, rgba(12,34,70,.34)),
+    url('/assets/wallpaper.jpg') center center / cover no-repeat fixed !important;
+  color:#18314f !important;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:radial-gradient(circle at 76% 28%, rgba(255,255,255,.12), rgba(255,255,255,.72) 58%, rgba(245,249,255,.88));
+  pointer-events:none; z-index:-1;
+}
+.panel,.card,.task-card,.config{
+  background:rgba(255,255,255,.74) !important;
+  border:1px solid rgba(71,112,166,.24) !important;
+  box-shadow:0 24px 80px rgba(31,77,132,.18) !important;
+  backdrop-filter:blur(16px) saturate(1.18);
+  -webkit-backdrop-filter:blur(16px) saturate(1.18);
+}
+.title h1,h1{
+  background:linear-gradient(135deg,#1f5f9f,#3b82d6,#6aa7ff) !important;
+  -webkit-background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  text-shadow:0 10px 28px rgba(26,86,150,.14);
+}
+.title p,.sub,.hint,.footer,.status,label{color:#47637f !important}
+.tab{background:rgba(255,255,255,.72) !important;color:#28506f !important;border:1px solid rgba(70,113,166,.25) !important}
+.tab.active,button:not(.tab):not(.btn2):not(.btn3):not(.btn-danger){background:linear-gradient(135deg,#2f74c0,#62a8ff) !important;color:#fff !important}
+.btn2{background:rgba(244,249,255,.85) !important;color:#2e5f8b !important;border:1px solid rgba(70,113,166,.28) !important}
+.btn3{background:linear-gradient(135deg,#1f6fb7,#60a5fa) !important;color:#fff !important;border:0 !important}
+input,select,textarea{
+  background:rgba(255,255,255,.86) !important;
+  color:#18314f !important;
+  border:1px solid rgba(70,113,166,.28) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+}
+.table-wrap{border:1px solid rgba(70,113,166,.24) !important;box-shadow:0 14px 45px rgba(31,77,132,.12)}
+table{background:rgba(255,255,255,.72) !important}
+th{background:rgba(221,238,255,.92) !important;color:#244766 !important;border-bottom:1px solid rgba(70,113,166,.24) !important}
+td{color:#213d5b !important;border-bottom:1px solid rgba(70,113,166,.14) !important}
+.result-item,.task{background:rgba(255,255,255,.76) !important;border:1px solid rgba(70,113,166,.18) !important}
+.tag{background:rgba(226,241,255,.9) !important;color:#245f99 !important;border-color:rgba(80,139,201,.28) !important}
+.pill{background:rgba(255,255,255,.8) !important}.empty{color:#607d99 !important}
+.toast{background:rgba(255,255,255,.88) !important;color:#244766 !important;border-color:rgba(70,113,166,.25) !important;backdrop-filter:blur(12px)}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="title"><h1>短剧下载工具 · 开源版</h1><p>全网搜索界面 / 批量下载队列 / 本机配置。EXE 启动后自动打开此页面。</p></div>
+    <div class="tabs"><button class="tab active" data-tab="search">全网搜索</button><button class="tab" data-tab="downloads">下载任务</button><button class="tab" data-tab="settings">设置</button></div>
+  </div>
+
+  <section id="search" class="panel active">
+    <div class="section-title">一、搜索筛选区</div>
+    <div class="grid">
+      <div><label>搜索关键词</label><input id="keyword" value="穿越" placeholder="例如：穿越、赘婿、重生"></div>
+      <div><label>分页</label><input id="page" type="number" min="1" value="1"></div>
+      <div><label>数据来源</label><select id="source"><option>红果短剧</option><option>红果漫剧</option><option>爱奇艺短剧</option><option>FlexTV</option><option>熊猫短剧</option><option>趣看看短剧</option><option>全网聚合</option><option>本地导入</option></select></div>
+      <button id="searchBtn">开始搜索</button><button id="downloadSelectedTop" class="btn3">下载选中</button>
+    </div>
+    <div class="filter-row">
+      <div><label>分类过滤，多个关键字用逗号隔开</label><input id="categoryFilter" placeholder="穿越剧情,甜宠,逆袭"></div>
+      <button id="applyFilter" class="btn2">应用过滤</button><button id="exportSearch" class="btn2">导出数据</button><button id="clearRows" class="btn-danger">清空列表</button>
+    </div>
+    <div id="searchHint" class="hint warn">已接入公开真实搜索源：红果短剧官网、红果漫剧公开入口、爱奇艺短剧、FlexTV、熊猫短剧、趣看看短剧及全网聚合。非红果来源可能只有网页链接，没有可直接下载的短剧ID。</div>
+
+    <div class="table-wrap"><table><thead><tr><th style="width:46px"><input type="checkbox" id="checkAll"></th><th>序号</th><th>作者</th><th>剧名</th><th>短剧ID</th><th>集数</th><th>时长</th><th>操作</th><th>上线时间</th><th>分类</th></tr></thead><tbody id="resultBody"><tr><td colspan="10" class="empty">暂无数据，点击“开始搜索”或手动添加一条记录。</td></tr></tbody></table></div>
+    <div class="bottom-bar"><div><button id="downloadSelectedBottom">下载选中</button> <button id="exportSearchBottom" class="btn2">导出数据</button> <button id="categoryBtn" class="btn2">分类</button> <button id="addSample" class="btn2">添加示例行</button></div><div id="tableStatus" class="status">当前 0 条，选中 0 条</div></div>
+  </section>
+
+  <section id="downloads" class="panel">
+    <div class="section-title">二、批量下载和下载界面</div>
+    <div class="task-layout">
+      <div class="task-card">
+        <label>批量粘贴短剧ID / video_id（一行一个，或逗号分隔）</label>
+        <textarea id="bulkIds" placeholder="例如：\n7380000000000000000\n7380000000000000001"></textarea>
+        <div class="hint">也可以在“全网搜索”表格中勾选后点击“下载选中”。队列会逐个调用后端 <code>/hg?vid=...</code>。</div>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap"><button id="addBulk" class="btn3">加入队列</button><button id="startQueue">开始下载</button><button id="pauseQueue" class="btn2">暂停</button><button id="clearTasks" class="btn-danger">清空任务</button><button id="exportTasks" class="btn2">&#23548;&#20986;&#19979;&#36733;&#38142;&#25509;</button></div>
+      </div>
+      <div class="task-card">
+        <div class="bottom-bar" style="margin-top:0"><div class="section-title" style="margin:0">下载任务列表</div><div id="queueStatus" class="status">等待任务</div></div>
+        <div id="taskList" class="task-list"><div class="empty">暂无下载任务</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="settings" class="panel">
+    <div class="section-title">三、本机配置</div>
+    <div id="configBox" class="config">
+      <div class="config-head"><div><div style="font-weight:700;margin-bottom:5px">设备配置</div><div id="configStatus" class="status warn">正在读取配置...</div></div><button id="toggleConfig" class="btn2" type="button">展开/收起</button></div>
+      <div class="config-form grid-2"><div><label>device_id</label><input type="text" id="deviceId" autocomplete="off"></div><div><label>install_id</label><input type="text" id="installId" autocomplete="off"></div><div><label>platform</label><select id="platform"><option value="android">android</option><option value="ios">ios</option></select></div><div style="align-self:end"><button id="saveConfig" type="button">保存配置</button></div></div>
+    </div>
+  </section>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+const $=id=>document.getElementById(id);let rows=[],tasks=[],running=false,currentIndex=0;
+function toast(msg){const t=$('toast');t.textContent=msg;t.className='toast show';setTimeout(()=>t.className='toast',2800)}
+function safe(v){return v==null?'':String(v)}
+function csvCell(v){v=safe(v);return /[",\n]/.test(v)?'"'+v.replaceAll('"','""')+'"':v}
+function downloadText(name,text){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download=name;document.body.appendChild(a);a.click();a.remove()}
+function setTab(name){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===name))}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+function selectedRows(){return rows.filter(r=>r.checked)}
+function updateTableStatus(){const s=selectedRows().length;$('tableStatus').textContent=`当前 ${rows.length} 条，选中 ${s} 条`; $('checkAll').checked=rows.length>0&&s===rows.length}
+function renderRows(){const body=$('resultBody');body.textContent='';if(!rows.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=10;td.className='empty';td.textContent='\u6682\u65e0\u6570\u636e\uff0c\u70b9\u51fb\u201c\u5f00\u59cb\u641c\u7d22\u201d\u83b7\u53d6\u771f\u5b9e\u77ed\u5267\u5217\u8868\u3002';tr.appendChild(td);body.appendChild(tr);updateTableStatus();return}rows.forEach((r,i)=>{const tr=document.createElement('tr');const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!r.checked;cb.onchange=()=>{r.checked=cb.checked;updateTableStatus()};function td(v){const x=document.createElement('td');x.textContent=safe(v);return x}let c=document.createElement('td');c.appendChild(cb);tr.appendChild(c);tr.append(td(i+1),td(r.author||r.source),td(r.title),td(r.drama_id),td(r.episodes),td(r.duration));let op=document.createElement('td');let b=document.createElement('button');b.className='mini '+(r.downloadable?'btn3':'btn2');b.textContent=r.downloadable?'\u4e0b\u8f7d':'\u8be6\u60c5';b.onclick=()=>{if(r.downloadable){addTasks([r]);setTab('downloads');startQueue()}else if(r.source_url){window.open(r.source_url,'_blank')}else{toast('\u8be5\u6765\u6e90\u6682\u672a\u63d0\u4f9b\u53ef\u4e0b\u8f7dID')}};op.appendChild(b);tr.appendChild(op);tr.append(td(r.online_time));let cat=document.createElement('td');let tag=document.createElement('span');tag.className='tag';tag.textContent=safe(r.category||r.source);cat.appendChild(tag);tr.appendChild(cat);body.appendChild(tr)});updateTableStatus()}
+function normalizeRow(x,i=0){return{checked:false,author:x.author||x.source||'-',title:x.title||x.name||`\u77ed\u5267 ${i+1}`,drama_id:x.drama_id||x.id||x.video_id||'',episodes:x.episodes||x.episode_count||'-',duration:x.duration||'-',online_time:x.online_time||x.create_time||'-',category:x.category||x.source||'-',source:x.source||'',source_url:x.source_url||x.url||'',download_url:x.download_url||'',downloadable:x.downloadable!==false}}
+async function doSearch(){const btn=$('searchBtn');btn.disabled=true;btn.textContent='搜索中...';try{const resp=await fetch('/api/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({keyword:$('keyword').value.trim(),page:$('page').value,source:$('source').value,category_filter:$('categoryFilter').value.trim()})});const data=await resp.json();rows=(data.items||[]).map(normalizeRow);renderRows();$('searchHint').textContent=data.message||`搜索完成：${rows.length} 条`;toast(rows.length?`搜索完成：${rows.length} 条`:'搜索接口暂无数据，已保留表格界面')}catch(e){toast('搜索失败：'+e.message)}finally{btn.disabled=false;btn.textContent='开始搜索'}}
+function applyFilter(){const keys=$('categoryFilter').value.split(',').map(s=>s.trim()).filter(Boolean);if(!keys.length){renderRows();return}rows=rows.filter(r=>keys.some(k=>safe(r.category).includes(k)||safe(r.title).includes(k)));renderRows();toast('已按分类关键字过滤')}
+function exportRows(){if(!rows.length){toast('\u6ca1\u6709\u53ef\u5bfc\u51fa\u7684\u6570\u636e');return}const head=['\u5e8f\u53f7','\u4f5c\u8005/\u6765\u6e90','\u5267\u540d','\u77ed\u5267ID','\u96c6\u6570','\u65f6\u957f','\u4e0a\u7ebf\u65f6\u95f4','\u5206\u7c7b','\u6765\u6e90','\u8be6\u60c5\u94fe\u63a5','\u4e0b\u8f7d\u94fe\u63a5','\u662f\u5426\u53ef\u4e0b\u8f7d'];const lines=[head.join(',')].concat(rows.map((r,i)=>[i+1,r.author||r.source,r.title,r.drama_id,r.episodes,r.duration,r.online_time,r.category,r.source,r.source_url,r.download_url,r.downloadable?'\u662f':'\u5426'].map(csvCell).join(',')));downloadText('\u77ed\u5267\u641c\u7d22_\u7ed3\u679c.csv','\ufeff'+lines.join('\n'))}
+function addSample(){rows.push(normalizeRow({author:'示例作者',title:$('keyword').value+'短剧示例',drama_id:'请替换为真实短剧ID',episodes:'80',duration:'约2小时',online_time:new Date().toLocaleDateString(),category:'穿越剧情'},rows.length));renderRows()}
+function addTasks(items){let added=0,skipped=0;items.forEach(r=>{const id=safe(r.drama_id).trim();if(!id||id==='\u8bf7\u66ff\u6362\u4e3a\u771f\u5b9e\u77ed\u5267ID'||r.downloadable===false){skipped++;return}if(tasks.some(t=>t.id===id))return;tasks.push({id,title:r.title||id,status:'pending',progress:0,msg:'\u7b49\u5f85\u4e0b\u8f7d',url:''});added++});renderTasks();toast(`\u5df2\u52a0\u5165 ${added} \u4e2a\u4e0b\u8f7d\u4efb\u52a1${skipped?`\uff0c\u8df3\u8fc7 ${skipped} \u4e2a\u65e0\u4e0b\u8f7dID\u9879\u76ee`:''}`)}
+function parseBulk(){return $('bulkIds').value.split(/[\n,，;；\s]+/).map(s=>s.trim()).filter(Boolean).map(id=>({drama_id:id,title:id}))}
+function saveTasks(){try{localStorage.setItem('duanju_download_tasks',JSON.stringify(tasks))}catch(e){}}
+function loadTasks(){try{const raw=localStorage.getItem('duanju_download_tasks');if(raw){const arr=JSON.parse(raw);if(Array.isArray(arr))tasks=arr}}catch(e){tasks=[]}}
+function exportTaskLinks(){if(!tasks.length){toast('\u6ca1\u6709\u4e0b\u8f7d\u4efb\u52a1\u53ef\u5bfc\u51fa');return}const head=['\u5e8f\u53f7','\u5267\u540d','\u77ed\u5267ID','\u72b6\u6001','\u4e0b\u8f7d\u94fe\u63a5','\u5907\u6ce8'];const lines=[head.join(',')].concat(tasks.map((t,i)=>[i+1,t.title,t.id,t.status,t.url||'',t.msg||''].map(csvCell).join(',')));downloadText('\u77ed\u5267\u4e0b\u8f7d\u94fe\u63a5.csv','\ufeff'+lines.join('\n'))}
+function renderTasks(){saveTasks();const box=$('taskList');box.textContent='';if(!tasks.length){const e=document.createElement('div');e.className='empty';e.textContent='暂无下载任务';box.appendChild(e);$('queueStatus').textContent='等待任务';return}tasks.forEach((t,i)=>{const d=document.createElement('div');d.className='task';const head=document.createElement('div');head.className='task-head';const left=document.createElement('div');const title=document.createElement('div');title.className='task-title';title.textContent=t.title||t.id;const id=document.createElement('div');id.className='task-id';id.textContent='ID: '+t.id;left.append(title,id);const p=document.createElement('span');p.className='pill '+t.status;p.textContent={pending:'等待',running:'下载中',done:'完成',error:'失败'}[t.status]||t.status;head.append(left,p);const bar=document.createElement('div');bar.className='progress';const bi=document.createElement('i');bi.style.width=(t.progress||0)+'%';bar.appendChild(bi);const msg=document.createElement('div');msg.className='status '+(t.status==='error'?'err':t.status==='done'?'ok':'');msg.textContent=t.msg||'';const actions=document.createElement('div');actions.className='task-actions';if(t.url){let open=document.createElement('button');open.className='mini btn3';open.textContent='打开';open.onclick=()=>window.open(t.url,'_blank');let copy=document.createElement('button');copy.className='mini btn2';copy.textContent='复制链接';copy.onclick=async()=>{await navigator.clipboard.writeText(t.url);toast('已复制')};actions.append(open,copy)}if(t.status==='error'){let retry=document.createElement('button');retry.className='mini';retry.textContent='重试';retry.onclick=()=>{t.status='pending';t.progress=0;t.msg='等待重试';renderTasks();startQueue()};actions.appendChild(retry)}d.append(head,bar,msg,actions);box.appendChild(d)});const done=tasks.filter(t=>t.status==='done').length,err=tasks.filter(t=>t.status==='error').length;$('queueStatus').textContent=`共 ${tasks.length} 个，完成 ${done} 个，失败 ${err} 个`}
+async function startQueue(){if(running)return;running=true;renderTasks();for(let i=0;i<tasks.length&&running;i++){const t=tasks[i];if(t.status!=='pending')continue;t.status='running';t.progress=35;t.msg='正在解析并下载...';renderTasks();try{const resp=await fetch('/hg?vid='+encodeURIComponent(t.id));const data=await resp.json();if(!resp.ok||data.error)throw new Error(data.error||('HTTP '+resp.status));t.status='done';t.progress=100;t.url=data.url||'';t.msg=t.url?'下载完成：'+t.url:'解析完成';}catch(e){t.status='error';t.progress=100;t.msg='失败：'+e.message;if(String(e.message).includes('Missing device configuration'))setTab('settings')}renderTasks()}running=false;renderTasks();toast('队列处理结束')}
+async function loadConfig(){try{const r=await fetch('/api/config');const d=await r.json();const ok=!!d.configured;$('configStatus').className='status '+(ok?'ok':'warn');$('configStatus').textContent=ok?`已配置：device=${d.device_id_masked||'-'}，install=${d.install_id_masked||'-'}，platform=${d.platform||'android'}`:`未配置：请填写 device_id 和 install_id。保存位置：${d.config_path||'config.json'}`;if(!ok)$('configBox').classList.add('open');if(d.platform)$('platform').value=d.platform}catch(e){$('configStatus').className='status err';$('configStatus').textContent='读取失败：'+e.message}}
+async function saveConfig(){const body={device_id:$('deviceId').value.trim(),install_id:$('installId').value.trim(),platform:$('platform').value||'android'};if(!body.device_id||!body.install_id){toast('请填写 device_id 和 install_id');return}$('saveConfig').disabled=true;try{const r=await fetch('/api/config',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();if(!r.ok||d.error)throw new Error(d.error||('HTTP '+r.status));$('deviceId').value='';$('installId').value='';$('configBox').classList.remove('open');await loadConfig();toast('配置已保存')}catch(e){toast('保存失败：'+e.message)}finally{$('saveConfig').disabled=false}}
+$('searchBtn').onclick=doSearch;$('applyFilter').onclick=applyFilter;$('exportSearch').onclick=exportRows;$('exportSearchBottom').onclick=exportRows;$('clearRows').onclick=()=>{rows=[];renderRows()};$('checkAll').onchange=e=>{rows.forEach(r=>r.checked=e.target.checked);renderRows()};$('downloadSelectedTop').onclick=$('downloadSelectedBottom').onclick=()=>{const s=selectedRows();if(!s.length){toast('请先勾选短剧');return}addTasks(s);setTab('downloads')};$('categoryBtn').onclick=()=>toast('分类管理入口已预留，可后续接入标签管理');$('addSample').onclick=addSample;$('addBulk').onclick=()=>{addTasks(parseBulk());$('bulkIds').value=''};$('startQueue').onclick=startQueue;$('pauseQueue').onclick=()=>{running=false;toast('已暂停，当前任务结束后停止')};$('clearTasks').onclick=()=>{running=false;tasks=[];renderTasks()};$('toggleConfig').onclick=()=>$('configBox').classList.toggle('open');$('saveConfig').onclick=saveConfig;$('exportTasks').onclick=exportTaskLinks;loadTasks();renderRows();renderTasks();loadConfig();
+</script>
+</body>
+</html>
+
+

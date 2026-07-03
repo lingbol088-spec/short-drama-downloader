@@ -1,0 +1,4 @@
+betterproto==1.2.5
+pycryptodome==3.18.0
+Requests==2.27.1
+snowland_smx==0.3.1
